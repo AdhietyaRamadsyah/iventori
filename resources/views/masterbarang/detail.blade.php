@@ -13,7 +13,7 @@
                             <tbody>
                                 <tr>
                                     <td>Kode Barang</td>
-                                    <td>KRL-234-4563-53</td>
+                                    <td>ARX-234-4563-53</td>
                                 </tr>
                                 <tr>
                                     <td>Nama Barang</td>

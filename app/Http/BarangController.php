@@ -9,7 +9,5 @@ class BarangController extends Controller
     public function index()
     {
         return view('masterbarang.index');
-        
     }
-
 }

@@ -10,5 +10,4 @@ class BarangController extends Controller
     {
         return view('masterbarang.index');
     }
-    
 }

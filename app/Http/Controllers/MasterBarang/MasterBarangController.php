@@ -11,6 +11,11 @@ class MasterBarangController extends Controller
     {
         return view('masterbarang.create');
     }
+
+    public function edit()
+    {
+        return view('masterbarang.edit');
+    }
     
     public function show()
     {
