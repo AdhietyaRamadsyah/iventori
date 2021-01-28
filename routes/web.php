@@ -18,6 +18,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 /**
@@ -26,10 +28,13 @@ Route::get('/home', 'HomeController@index')->name('home');
  */
 
  Route::group(['prefix' => 'master-barang'], function(){
-     Route::get('/index','BarangController@index')->name('master-barang');
+     Route::get('/index', 'MasterBarang\MasterBarangController@index')->name('master-barang');
      Route::get('/formulir-barang', 'MasterBarang\MasterBarangController@create')->name('master-barang.formulir-barang');
-     Route::get('/edit', 'MasterBarang\MasterBarangController@edit')->name('master-barang.edit');
-     Route::get('/show','MasterBarang\MasterBarangController@show')->name('master-barang.show');
+     Route::post('store','MasterBarang\MasterBarangController@store')->name('master-barang.store');
+     Route::get('/edit/{barang}', 'MasterBarang\MasterBarangController@edit')->name('master-barang.edit');
+     Route::patch('update/{barang}','MasterBarang\MasterBarangController@update')->name('master-barang.update');
+     Route::get('/show/{barang}','MasterBarang\MasterBarangController@show')->name('master-barang.show');
+     Route::delete('delete/{barang}','MasterBarang\MasterBarangController@destroy')->name('master-barang.delete');
  });
 
  Route::group(['prefix' => 'transaksi'], function(){

@@ -13,19 +13,19 @@
                             <tbody>
                                 <tr>
                                     <td>Kode Barang</td>
-                                    <td>ARX-234-4563-53</td>
+                                    <td>{{$barang->kode_barang}}</td>
                                 </tr>
                                 <tr>
                                     <td>Nama Barang</td>
-                                    <td>TOPI</td>
+                                    <td>{{$barang->nama_barang}}</td>
                                 </tr>
                                 <tr>
                                     <td>Quantity</td>
-                                    <td>10 unit</td>
+                                    <td>{{$barang->quantity}}</td>
                                 </tr>
                                 <tr>
                                     <td>Tanggal</td>
-                                    <td>6 April 2011</td>
+                                    <td>{{$barang->created_at}}</td>
                                 </tr>
                             </tbody>
                         </table>

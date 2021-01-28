@@ -34,28 +34,33 @@
                         <thead>
                             <tr>
                                 <th>Kode Barang</th>
-                                <th>Nama Suplier</th>
+
                                 <th>Nama Barang</th>
                                 <th>Quantity</th>
                                 <th>Options</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($barangs as $barang)
                             <tr>
-                                <td>ARX-234-4563-53</td>
-                                <td>PT. AEROX</td>
-                                <td>Topi</td>
-                                <td>10</td>
+                                <td>{{$barang->kode_barang}}</td>
+
+                                <td>{{$barang->nama_barang}}</td>
+                                <td>{{$barang->quantity}}</td>
                                 <td>
-                                    <a href="{{route('master-barang.edit')}}" class="btn btn-outline-warning btn-sm">Edit</a>
-                                    <a href="{{route('master-barang.show')}}" class="btn btn-outline-primary btn-sm">Detail</a>
-                                    <a href="{{route('master-barang.formulir-barang')}}" class="btn btn-outline-danger btn-sm">Delete</a>
+                                    <form action="{{route('master-barang.delete', $barang->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="{{route('master-barang.edit',$barang->id)}}" class="btn btn-outline-warning btn-sm">Edit</a>
+                                        <a href="{{route('master-barang.show',$barang->id)}}" class="btn btn-outline-primary btn-sm">Detail</a>
+                                        <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
-        @endsection
+@endsection
