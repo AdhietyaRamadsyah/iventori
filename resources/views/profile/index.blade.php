@@ -8,10 +8,10 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <a href="{{route('master-barang.formulir-barang')}}" class="btn btn-info">Tambah Data Barang Baru</a>
+                            <a href="{{route('profile.formulir')}}" class="btn btn-info">Tambahkan Profile</a>
                         </div>
                         <div>
-                            <form action="">
+                            <form action="{{route('laporan.profile')}}" method="GET">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -24,7 +24,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <button class="btn btn-info"> Cari data </button>
+                                        <button class="btn btn-info"> Cari data profile terkini </button>
                                     </div>
                                 </div>
                             </form>
@@ -33,26 +33,30 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Kode Barang</th>
-
-                                <th>Nama Barang</th>
-                                <th>Quantity</th>
+                                <th>Nama</th>
+                                <th>Tempat Lahir</th>
+                                <th>Tanggal Lahir</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Usia</th>
+                                <th>Hobby</th>
                                 <th>Options</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($barangs as $barang)
+                            @foreach($profiles as $profile)
                             <tr>
-                                <td>{{$barang->kode_barang}}</td>
-
-                                <td>{{$barang->nama_barang}}</td>
-                                <td>{{$barang->quantity}}</td>
+                                <td>{{$profile->nama}}</td>
+                                <td>{{$profile->tempat}}</td>
+                                <td>{{$profile->tanggal}}</td>
+                                <td>{{$profile->kelamin}}</td>
+                                <td>{{$profile->usia}}</td>
+                                <td>{{$profile->hoby}}</td>
                                 <td>
-                                    <form action="{{route('master-barang.delete', $barang->id)}}" method="post">
+                                    <form action="{{route('profile.delete', $profile->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{route('master-barang.edit',$barang->id)}}" class="btn btn-outline-warning btn-sm">Edit</a>
-                                        <a href="{{route('master-barang.show',$barang->id)}}" class="btn btn-outline-primary btn-sm">Detail</a>
+                                        <a href="{{route('profile.edit',$profile->id)}}" class="btn btn-outline-warning btn-sm">Edit</a>
+                                        <a href="{{route('profile.show',$profile->id)}}" class="btn btn-outline-primary btn-sm">Detail</a>
                                         <button class="btn btn-outline-danger btn-sm">Delete</button>
                                     </form>
                                 </td>
@@ -63,4 +67,4 @@
                 </div>
             </div>
         </div>
-@endsection
+        @endsection
