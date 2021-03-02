@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profile;
-use App\Suplier;
+use App\Formulir;
 
 class ProfileController extends Controller
 {
@@ -18,13 +18,13 @@ class ProfileController extends Controller
     
     public function create()
     {
-        $supliers = Suplier::all();
+        $formulirs = Formulir::all();
 
-        return view('profile.create', compact('supliers'));
+        return view('profile.create', compact('formulirs'));
     }
     public function store(Request $request)
     {
-        $suplier = Profile::create([
+        $formulir = Profile::create([
             'nama' => $request->nama,
             'tempat' => $request->tempat,
             'tanggal' => $request->tanggal,
@@ -41,8 +41,8 @@ class ProfileController extends Controller
     {
         $profile = Profile::findOrFail($id);
 
-        $supliers = Suplier::all();
-        return view('profile.edit', compact('supliers', 'profile'));
+        $formulirs = Formulir::all();
+        return view('profile.edit', compact('formulirs', 'profile'));
     }
     public function update(Request $request, $id)
     {

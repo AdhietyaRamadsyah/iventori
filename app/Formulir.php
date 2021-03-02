@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Suplier extends Model
+class Formulir extends Model
 {
-    protected $table = 'supliers';
+    protected $table = 'formulirs';
     protected $guarded = [];
 
 }
